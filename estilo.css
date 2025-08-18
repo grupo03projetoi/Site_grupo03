@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #F9FAFB;
+    color: #2D3F71;
+    line-height: 1.6;
+}
+
+.site-header {
+    background-color: #A6221D;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.site-header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.site-header h4 {
+    font-weight: normal;
+    font-size: 1rem;
+    color: #C8D3E5;
+}
+
+.main-content {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.faq-section h2 {
+    margin-bottom: 15px;
+    color: #2D3F71;
+}
+
+.faq-item h3 {
+    margin-top: 20px;
+    color: #A6221D;
+}
+
+.faq-item p {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color: #2D3F71;
+}
+
+.site-footer {
+    background-color: #FFFFFF;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 2px solid #C8D3E5;
+}
+
+.site-footer h1 {
+    font-size: 1.6rem;
+    color: #2D3F71;
+}
+
+.site-footer h3 {
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: #2D3F71;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.contact-form label {
+    text-align: left;
+    font-weight: bold;
+    color: #2D3F71;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #C8D3E5;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    color: #2D3F71;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #A6221D;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #2D3F71;
+}
+
+.site-footer p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #2D3F71;
+}
