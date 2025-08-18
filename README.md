@@ -1,1 +1,79 @@
 # Site_grupo03
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<title>Sobre Nós - Grupo 3</title>
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; 
+    color: #000000;
+}
+
+header {
+    background-color: #2d3f71; 
+    color: #f5f5f5;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 2.5rem; 
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+main {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h2   {
+    font-size: 2rem;
+    color: #2d3f71;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+ol {
+    list-style-position: inside;
+    font-size: 1.3rem;
+    color: #000000;
+    padding: 0;
+}
+
+ol li {
+    margin: 18px 0;
+    background-color: #f5f5f5; 
+    color: #a6221d;
+    padding: 30px;
+    border-radius: 6px;
+}
+</style>
+</head>
+<body>
+
+<header>Sobre Nós
+    <p>Conheça os integrantes que fazem parte do grupo</p>
+</header>
+
+<main>
+    <h2>Nossa Equipe</h2>
+    <ol>
+        <li>Ana Luisa Paixão Panho</li>
+        <li>Lucas Basse Pozzer</li>
+        <li>Manuela Caldeira Machado</li>
+        <li>Miguel Klidzio</li>
+        <li>Vitor Dezem</li>
+    </ol>
+</main>
+
+</body>
+</html>
