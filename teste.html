@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="estilo.css">
+  <meta charset="UTF-8">
+  <title>Teste de Nivelamento de Inglês</title>
+</head>
+<body>
+  <header class="cabecalho1">
+      <ul class="voltar">
+        <li><a href="#">Voltar</a></li>
+      </ul>
+  </header>
+  <h2>Teste de Nivelamento de Inglês</h2>
+  <div id="quiz-container"></div>
+  <button id="next-button" class="hidden">Próxima</button>
+  <div id="result" class="hidden"></div>
+
+  <script class="questoes">
+    const bloco1 = [
+      {
+        question: "What is the correct form of the verb: 'She ___ to school every day'?",
+        options: ["go", "goes", "going", "gone"],
+        answer: 1
+      },
+      {
+        question: "Choose the correct sentence:",
+        options: [
+          "He don't like coffee.",
+          "He doesn't likes coffee.",
+          "He doesn't like coffee.",
+          "He not like coffee."
+        ],
+        answer: 2
+      },
+      {
+        question: "What is the plural form of 'child'?",
+        options: ["childs", "childes", "children", "child"],
+        answer: 2
+      },
+      {
+        question: "Choose the correct option to complete: 'I have lived here ___ five years.'",
+        options: ["since", "for", "during", "from"],
+        answer: 1
+      }
+    ];
+
+    const bloco2 = [
+      {
+        question: "Listen and choose what you hear:",
+        options: [
+          "They are playing football.",
+          "They is playing football.",
+          "They played football.",
+          "They were play football."
+        ],
+        answer: 0,
+        audio: "https://www.englishclass101.com/audio-library/englishclass101_audio_042.mp3"
+      },
+      {
+        question: "Listen and choose what you hear:",
+        options: [
+          "She has a cat.",
+          "She have a cat.",
+          "She had a cat.",
+          "She having a cat."
+        ],
+        answer: 0,
+        audio: "https://www.englishclass101.com/audio-library/englishclass101_audio_019.mp3"
+      },
+      {
+        question: "Listen and choose what you hear:",
+        options: [
+          "I am going to the store.",
+          "I go to the store.",
+          "I went to the store.",
+          "I going to the store."
+        ],
+        answer: 0,
+        audio: "https://www.englishclass101.com/audio-library/englishclass101_audio_001.mp3"
+      },
+      {
+        question: "Listen and choose what you hear:",
+        options: [
+          "We were watching a movie.",
+          "We watch a movie.",
+          "We are watched a movie.",
+          "We watches a movie."
+        ],
+        answer: 0,
+        audio: "https://www.englishclass101.com/audio-library/englishclass101_audio_017.mp3"
+      }
+    ];
+
+    let currentBlock = bloco1;
+    let blockIndex = 0;
+    let block1Score = 0;
+    let block2Score = 0;
+    let currentQuestionIndex = 0;
+
+    const container = document.getElementById('quiz-container');
+    const nextButton = document.getElementById('next-button');
+    const resultDiv = document.getElementById('result');
+
+    function renderQuestion() {
+      const questionData = currentBlock[currentQuestionIndex];
+      container.innerHTML = '';
+      const block = document.createElement('div');
+      block.className = 'question-block';
+
+      const q = document.createElement('p');
+      q.textContent = questionData.question;
+      block.appendChild(q);
+
+      if (questionData.audio) {
+        const audio = document.createElement('audio');
+        audio.controls = true;
+        audio.src = questionData.audio;
+        block.appendChild(audio);
+      }
+
+      questionData.options.forEach((option, i) => {
+        const label = document.createElement('label');
+        label.style.display = 'block';
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'option';
+        input.value = i;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(option));
+        block.appendChild(label);
+      });
+
+      container.appendChild(block);
+      nextButton.classList.remove('hidden');
+    }
+
+    function handleNext() {
+      const selected = document.querySelector('input[name="option"]:checked');
+      if (!selected) {
+        alert("Selecione uma resposta.");
+        return;
+      }
+
+      const answer = parseInt(selected.value);
+      if (currentBlock[currentQuestionIndex].answer === answer) {
+        if (blockIndex === 0) block1Score++;
+        else block2Score++;
+      }
+
+      currentQuestionIndex++;
+
+      // Se errou as 2 primeiras do bloco 1, pula para o bloco 2
+      if (blockIndex === 0 && currentQuestionIndex === 2 && block1Score === 0) {
+        blockIndex = 1;
+        currentBlock = bloco2;
+        currentQuestionIndex = 0;
+        renderQuestion();
+        return;
+      }
+
+      // Se errou as 2 primeiras do bloco 2, mostra resultado direto
+      if (blockIndex === 1 && currentQuestionIndex === 2 && block2Score === 0) {
+        showResult();
+        return;
+      }
+
+      if (currentQuestionIndex < currentBlock.length) {
+        renderQuestion();
+      } else {
+        if (blockIndex === 0) {
+          blockIndex = 1;
+          currentBlock = bloco2;
+          currentQuestionIndex = 0;
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      }
+    }
+
+    function showResult() {
+      container.innerHTML = '';
+      nextButton.classList.add('hidden');
+      resultDiv.classList.remove('hidden');
+
+      let nivel = 'Básico';
+      if ((block1Score >= 2 && block2Score >= 2)) {
+        nivel = 'Intermediário';
+      } else if (block1Score >= 3 && block2Score >= 3) {
+        nivel = 'Avançado';
+      }
+
+      resultDiv.innerHTML = `<h3>Seu nível é: ${nivel}</h3>`;
+    }
+
+    nextButton.addEventListener('click', handleNext);
+    renderQuestion();
+  </script>
+</body>
+</html>
