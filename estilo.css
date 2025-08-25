@@ -1,0 +1,527 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bg-img {
+  background-image: url(menino.guardachuva.png);
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-position: center; 
+}
+
+.cabecalho1,
+.cabecalho2 {
+  background-color: #2d3f71;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            
+  padding: 15px 40px;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;                      
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 30px;
+  height: auto;
+}
+
+.logo span {
+  font-weight: bold;
+  line-height: 1;
+  font-size: 14px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: opacity 0.3s;
+}
+
+nav ul li a:hover {
+  opacity: 0.8;
+}
+
+.container {
+  display: flex;
+  margin: 40px auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 50px;
+  gap: 50px;
+}
+
+.text-content {
+  max-width: 45%;
+}
+
+.text-content h1 {
+  font-size: 32px;
+  color: #a6221d;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.text-content p {
+  font-size: 16px;
+  color: #a6221d;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn2 {
+  background-color: #e0e8f8;
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+  width: fit-content;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn2:hover {
+  background-color: #cbdaf2;
+  transform: translateY(-2px);
+}
+
+.image-content img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+@media screen and (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .text-content, .image-content img {
+    max-width: 100%;
+  }
+
+  .text-content {
+    margin-bottom: 20px;
+  }
+
+  .text-content h1 {
+    font-size: 28px;
+  }
+
+  .text-content p {
+    font-size: 16px;
+  }
+}
+
+
+.voltar {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.voltar li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: opacity 0.3s;
+}
+
+.voltar li a:hover {
+  opacity: 0.8;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 80px;
+  min-height: 80vh;
+}
+
+body {
+  background-color: #e8ebed;
+  color: #000000;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding-top: 100px;
+}
+
+#quiz-container {
+  width: 100%;
+  max-width: 700px;
+  background-color: #C8D3E5;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 40px auto 1.5rem auto;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#quiz-container:hover {
+  transform: translateY(-2px);
+}
+
+.question-block {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.question-block p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  background-color: #e8ebed;
+  margin-bottom: 0.7rem;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+label:hover {
+  background-color: #dce4f0;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#next-button {
+  background-color: #C8D3E5;
+  color: #000000;
+  font-weight: bold;
+  margin: 1rem auto;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+#next-button:hover {
+  background-color: #cbdaf2;
+  transform: scale(1.03);
+}
+
+.hidden {
+  display: none;
+}
+
+audio {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+#result {
+  width: 100%;
+  max-width: 700px;
+  background-color: #C8D3E5;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  margin: 1rem auto;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#result h3 {
+  font-size: 1.5rem;
+  color: #27ae60;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  #quiz-container,
+  #result {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    padding-top: 100px;
+  }
+
+  #next-button {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .question-block p {
+    font-size: 1rem;
+  }
+}
+
+
+.bg-img2 {
+  background-image: url(menina.computador.png);
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-position: center; 
+}
+
+.container2 {
+  display: flex;
+  margin: 120px auto;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 50px;
+  gap: 50px;
+}
+
+.text-content2 h1 {
+  font-size: 32px;
+  color: #a02c2c;
+  margin-bottom: 10px;
+  text-align: right;
+  padding: 20px;
+}
+
+.text-content2 a{
+  text-decoration: none;
+  color: #a02c2c;
+}
+.bg-img3 {
+  background-image: url(estudando.png);
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-position: center; 
+}
+
+.main-content {
+  width: 100%;
+  max-width: 700px;
+  background-color: #C8D3E5;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 125px auto 1.5rem auto; 
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  font-weight: medium;
+}
+
+.faq-section h2 {
+  padding: 20px
+}
+
+.main-content h2 {
+  padding:20px;
+}
+
+.main-content ol {
+  padding: 15px
+}
+
+.main-content p {
+  padding-top: 10px
+}
+
+.bg-img4 {
+  background-image: url(menina.comfone.png);
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+
+#quiz-container2 {
+  max-width: 500px;
+  margin: 100px auto; 
+  padding: 20px;
+  text-align: center; 
+  background-color: #fff; 
+  border-radius: 10px; /* Sombra leve */
+}
+
+#quiz-container2 h1,
+#quiz-container2 p {
+  text-align: center;
+}
+
+#answer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+
+#next-button {
+  display: block;
+  margin: 20px auto 0 auto; 
+}
+
+#restart-btn {
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+.btn:hover {
+  background-color: #d0dff3;
+}
+
+.btn,
+#next-button,
+#restart-btn {
+  padding: 12px 18px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1f3060;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover,
+#next-button:hover,
+#restart-btn:hover {
+  background-color: #324a8a;
+}
+
+
+.correct {
+  background-color: #4CAF50 !important;
+  color: #fff !important;
+}
+
+.wrong {
+  background-color: #E74C3C !important;
+  color: #fff !important;
+}
+
+#score {
+  font-size: 18px;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #1f3060;
+}
+
+.btn {
+  display: block;          
+  width: 100%;             
+  margin-bottom: 10px;     
+  background-color: #e0e8f8;
+  color: #1f3060;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #cbdaf2;
+  transform: translateY(-2px);
+}
+
+.bg-img5 {
+  background-image: url(menina.feliz.png);
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-position: center; }
+
+.text-content3 h1 {
+  text-align: left;
+  font-size: 20px;
+}
+
+.text-content3 a {
+  text-decoration: none;
+  color: #a02c2c;
+  text-align: left;
+}
+
+.container3 {
+  display: flex;
+  margin: 120px auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 50px;
+}
+
+.text-content3 h2 {
+  color: #a02c2c;
+  text-align: left;
+  font-size: 50px;
+  margin-bottom: 0;
+}
