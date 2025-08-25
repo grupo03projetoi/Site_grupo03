@@ -1,94 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="estilo.css">
   <meta charset="UTF-8">
-  <title>Teste de Nivelamento de Inglês</title>
+  <title>Teste de Nivelamento</title>
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
   <header class="cabecalho1">
-      <ul class="voltar">
-        <li><a href="#">Voltar</a></li>
-      </ul>
+    <ul class="voltar">
+      <li><a href="pag-teste.html">Voltar</a></li>
+    </ul>
   </header>
-  <h2>Teste de Nivelamento de Inglês</h2>
+
+  <h2>Teste de Nivelamento</h2>
   <div id="quiz-container"></div>
   <button id="next-button" class="hidden">Próxima</button>
   <div id="result" class="hidden"></div>
 
-  <script class="questoes">
+  <script>
     const bloco1 = [
       {
-        question: "What is the correct form of the verb: 'She ___ to school every day'?",
-        options: ["go", "goes", "going", "gone"],
-        answer: 1
+        question: "What is the plural of cat?", 
+        options: ["Cats", "Cat", "Catti", "Cates"],
+        answer: 0
       },
       {
-        question: "Choose the correct sentence:",
+        question: "Choose the correct sentence:", 
         options: [
-          "He don't like coffee.",
-          "He doesn't likes coffee.",
-          "He doesn't like coffee.",
-          "He not like coffee."
+          "She like apples",
+          "She likes apples",
+          "She liking apples",
+          "She likeds apples"
         ],
-        answer: 2
-      },
-      {
-        question: "What is the plural form of 'child'?",
-        options: ["childs", "childes", "children", "child"],
-        answer: 2
-      },
-      {
-        question: "Choose the correct option to complete: 'I have lived here ___ five years.'",
-        options: ["since", "for", "during", "from"],
         answer: 1
+      },
+      {
+        question: "Choose the correct sentence in past tense:", 
+        options: [
+          "He go to school yesterday.", 
+          "He went to school yesterday.", 
+          "He gone to school yesterday.", 
+          "He goes to school yesterday."],
+        answer: 1
+      },
+      {
+        question: "Choose the correct option to complete: 'I have lived here ___ five years.'", 
+        options: ["during", "since", "for", "from"],
+        answer: 2
       }
     ];
 
     const bloco2 = [
       {
-        question: "Listen and choose what you hear:",
+        question: "What color are the swirls?:", 
         options: [
-          "They are playing football.",
-          "They is playing football.",
-          "They played football.",
-          "They were play football."
+          "Red, blue and yellow.",
+          "Red, black and yellow.",
+          "Pink, grey and blue.",
+          "Green, orange and red."
         ],
         answer: 0,
-        audio: "https://www.englishclass101.com/audio-library/englishclass101_audio_042.mp3"
+        audio: "https://essential.com.br/wp-content/uploads/2023/10/audio-5-1.ogg?_=5"
       },
       {
-        question: "Listen and choose what you hear:",
+        question: "What is Sara's daughter name?:", 
         options: [
-          "She has a cat.",
-          "She have a cat.",
-          "She had a cat.",
-          "She having a cat."
+          "Amy",
+          "Emma",
+          "Sofia",
+          "Mia"
         ],
-        answer: 0,
-        audio: "https://www.englishclass101.com/audio-library/englishclass101_audio_019.mp3"
+        answer: 3,
+        audio: "https://essential.com.br/wp-content/uploads/2023/10/audio-3-1.ogg?_=3"
       },
       {
-        question: "Listen and choose what you hear:",
+        question: "Qual é o sentimento descrito no aúdio?", 
         options: [
-          "I am going to the store.",
-          "I go to the store.",
-          "I went to the store.",
-          "I going to the store."
+          "Medo",
+          "Luto",
+          "Raiva",
+          "Desgosto"
         ],
-        answer: 0,
-        audio: "https://www.englishclass101.com/audio-library/englishclass101_audio_001.mp3"
+        answer: 1,
+        audio: "https://essential.com.br/wp-content/uploads/2024/02/Grief.mp3?_=2"
       },
       {
-        question: "Listen and choose what you hear:",
+        question: "Com quem Emily vai passar um tempo?", 
         options: [
-          "We were watching a movie.",
-          "We watch a movie.",
-          "We are watched a movie.",
-          "We watches a movie."
+          "Com os tios",
+          "Com a mãe",
+          "Com os amigos",
+          "Com os avós"
         ],
         answer: 0,
-        audio: "https://www.englishclass101.com/audio-library/englishclass101_audio_017.mp3"
+        audio: "https://essential.com.br/wp-content/uploads/2024/02/back-to-the-start.mp3?_=10"
       }
     ];
 
@@ -103,8 +108,16 @@
     const resultDiv = document.getElementById('result');
 
     function renderQuestion() {
+      if (currentQuestionIndex >= currentBlock.length) {
+        nextButton.style.display = 'none';
+        showResult();
+        return;
+      }
+
       const questionData = currentBlock[currentQuestionIndex];
       container.innerHTML = '';
+      container.style.display = 'block';
+
       const block = document.createElement('div');
       block.className = 'question-block';
 
@@ -122,17 +135,19 @@
       questionData.options.forEach((option, i) => {
         const label = document.createElement('label');
         label.style.display = 'block';
+
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = 'option';
         input.value = i;
+
         label.appendChild(input);
         label.appendChild(document.createTextNode(option));
         block.appendChild(label);
       });
 
       container.appendChild(block);
-      nextButton.classList.remove('hidden');
+      nextButton.style.display = (currentQuestionIndex < currentBlock.length) ? 'block' : 'none';
     }
 
     function handleNext() {
@@ -150,7 +165,6 @@
 
       currentQuestionIndex++;
 
-      // Se errou as 2 primeiras do bloco 1, pula para o bloco 2
       if (blockIndex === 0 && currentQuestionIndex === 2 && block1Score === 0) {
         blockIndex = 1;
         currentBlock = bloco2;
@@ -159,8 +173,8 @@
         return;
       }
 
-      // Se errou as 2 primeiras do bloco 2, mostra resultado direto
       if (blockIndex === 1 && currentQuestionIndex === 2 && block2Score === 0) {
+        nextButton.style.display = 'none';
         showResult();
         return;
       }
@@ -174,6 +188,7 @@
           currentQuestionIndex = 0;
           renderQuestion();
         } else {
+          nextButton.style.display = 'none';
           showResult();
         }
       }
@@ -181,14 +196,13 @@
 
     function showResult() {
       container.innerHTML = '';
-      nextButton.classList.add('hidden');
+      container.style.display = 'none';
+      nextButton.style.display = 'none';
       resultDiv.classList.remove('hidden');
 
       let nivel = 'Básico';
-      if ((block1Score >= 2 && block2Score >= 2)) {
+      if ((block1Score + block2Score) >= 4) {
         nivel = 'Intermediário';
-      } else if (block1Score >= 3 && block2Score >= 3) {
-        nivel = 'Avançado';
       }
 
       resultDiv.innerHTML = `<h3>Seu nível é: ${nivel}</h3>`;

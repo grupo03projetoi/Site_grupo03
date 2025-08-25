@@ -6,24 +6,24 @@
 
 .bg-img {
   background-image: url(menino.guardachuva.png);
-  background-size: cover; /* cobre toda a tela */
+  background-size: cover; 
   background-repeat: no-repeat;
-  background-attachment: fixed; /* permanece fixa ao rolar */
-  background-position: center; /* centraliza a imagem */
+  background-attachment: fixed; 
+  background-position: center; 
 }
 
 .cabecalho1,
 .cabecalho2 {
-  background-color: #1f3060;
+  background-color: #2d3f71;
   display: flex;
-  justify-content: space-between; /* mantém itens distribuídos */
-  align-items: center;            /* centraliza verticalmente */
+  justify-content: space-between; 
+  align-items: center;            
   padding: 15px 40px;
   color: white;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;                      /* garante que ocupe 100% da largura */
+  right: 0;                      
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -79,14 +79,14 @@ nav ul li a:hover {
 
 .text-content h1 {
   font-size: 32px;
-  color: #a02c2c;
+  color: #a6221d;
   margin-bottom: 10px;
   text-align: left;
 }
 
 .text-content p {
   font-size: 16px;
-  color: #a02c2c;
+  color: #a6221d;
   font-weight: bold;
   margin-bottom: 30px;
   text-align: left;
@@ -98,9 +98,9 @@ nav ul li a:hover {
   gap: 15px;
 }
 
-.btn {
+.btn2 {
   background-color: #e0e8f8;
-  color: #1f3060;
+  color: #000000;
   text-decoration: none;
   font-weight: bold;
   padding: 12px 20px;
@@ -111,13 +111,11 @@ nav ul li a:hover {
   transition: background-color 0.3s, transform 0.2s;
 }
 
-.btn:hover {
+.btn2:hover {
   background-color: #cbdaf2;
   transform: translateY(-2px);
 }
 
-
-/* Coluna da imagem */
 .image-content img {
   max-width: 500px;
   width: 100%;
@@ -193,28 +191,26 @@ h2 {
   padding-top: 100px;
 }
 
-
 #quiz-container {
   width: 100%;
   max-width: 700px;
   background-color: #C8D3E5;
   padding: 2rem;
   border-radius: 10px;
-  margin: 70px auto 1.5rem auto; 
+  margin: 40px auto 1.5rem auto;
   transition: 0.3s ease-in-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
 }
-
 
 #quiz-container:hover {
   transform: translateY(-2px);
 }
 
 .question-block {
+  width: 100%;
   margin-bottom: 1.5rem;
 }
 
@@ -246,20 +242,21 @@ input[type="radio"] {
 }
 
 #next-button {
+  background-color: #C8D3E5;
   color: #000000;
+  font-weight: bold;
   margin: 1rem auto;
   padding: 0.8rem 2rem;
   font-size: 1rem;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
-  margin-top: 1rem;
   display: block;
   transition: background-color 0.3s ease, transform 0.2s;
-  justify-content: center;
-  text-align: center;
 }
 
 #next-button:hover {
+  background-color: #cbdaf2;
   transform: scale(1.03);
 }
 
@@ -281,7 +278,7 @@ audio {
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  margin-top: 1rem;
+  margin: 1rem auto;
   text-align: center;
   animation: fadeIn 0.5s ease-in-out;
 }
@@ -291,9 +288,7 @@ audio {
   color: #27ae60;
 }
 
-/* ==============================
-   Animação Suave no Resultado
-================================= */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -305,9 +300,7 @@ audio {
   }
 }
 
-/* ==============================
-   Responsividade
-================================= */
+
 @media screen and (max-width: 600px) {
   #quiz-container,
   #result {
@@ -316,20 +309,26 @@ audio {
 
   h2 {
     font-size: 1.5rem;
+    padding-top: 100px;
   }
 
   #next-button {
     width: 100%;
     font-size: 1rem;
   }
+
+  .question-block p {
+    font-size: 1rem;
+  }
 }
+
 
 .bg-img2 {
   background-image: url(menina.computador.png);
-  background-size: cover; /* cobre toda a tela */
+  background-size: cover; 
   background-repeat: no-repeat;
-  background-attachment: fixed; /* permanece fixa ao rolar */
-  background-position: center; /* centraliza a imagem */
+  background-attachment: fixed; 
+  background-position: center; 
 }
 
 .container2 {
@@ -346,15 +345,19 @@ audio {
   color: #a02c2c;
   margin-bottom: 10px;
   text-align: right;
-  padding: 20px
+  padding: 20px;
 }
 
+.text-content2 a{
+  text-decoration: none;
+  color: #a02c2c;
+}
 .bg-img3 {
   background-image: url(estudando.png);
-  background-size: cover; /* cobre toda a tela */
+  background-size: cover; 
   background-repeat: no-repeat;
-  background-attachment: fixed; /* permanece fixa ao rolar */
-  background-position: center; /* centraliza a imagem */
+  background-attachment: fixed; 
+  background-position: center; 
 }
 
 .main-content {
@@ -366,12 +369,159 @@ audio {
   margin: 125px auto 1.5rem auto; 
   transition: 0.3s ease-in-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  font-weight: medium;
 }
 
 .faq-section h2 {
   padding: 20px
+}
+
+.main-content h2 {
+  padding:20px;
+}
+
+.main-content ol {
+  padding: 15px
+}
+
+.main-content p {
+  padding-top: 10px
+}
+
+.bg-img4 {
+  background-image: url(menina.comfone.png);
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+
+#quiz-container2 {
+  max-width: 500px;
+  margin: 100px auto; 
+  padding: 20px;
+  text-align: center; 
+  background-color: #fff; 
+  border-radius: 10px; /* Sombra leve */
+}
+
+#quiz-container2 h1,
+#quiz-container2 p {
+  text-align: center;
+}
+
+#answer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+
+#next-button {
+  display: block;
+  margin: 20px auto 0 auto; 
+}
+
+#restart-btn {
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+.btn:hover {
+  background-color: #d0dff3;
+}
+
+.btn,
+#next-button,
+#restart-btn {
+  padding: 12px 18px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1f3060;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover,
+#next-button:hover,
+#restart-btn:hover {
+  background-color: #324a8a;
+}
+
+
+.correct {
+  background-color: #4CAF50 !important;
+  color: #fff !important;
+}
+
+.wrong {
+  background-color: #E74C3C !important;
+  color: #fff !important;
+}
+
+#score {
+  font-size: 18px;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #1f3060;
+}
+
+.btn {
+  display: block;          
+  width: 100%;             
+  margin-bottom: 10px;     
+  background-color: #e0e8f8;
+  color: #1f3060;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #cbdaf2;
+  transform: translateY(-2px);
+}
+
+.bg-img5 {
+  background-image: url(menina.feliz.png);
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-position: center; }
+
+.text-content3 h1 {
+  text-align: left;
+  font-size: 20px;
+}
+
+.text-content3 a {
+  text-decoration: none;
+  color: #a02c2c;
+  text-align: left;
+}
+
+.container3 {
+  display: flex;
+  margin: 120px auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 50px;
+}
+
+.text-content3 h2 {
+  color: #a02c2c;
+  text-align: left;
+  font-size: 50px;
+  margin-bottom: 0;
 }

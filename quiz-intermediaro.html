@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="estilo.css">
+  <title>Quiz Intermediário</title>
+</head>
+<body>
+    <header class="cabecalho1">
+      <ul class="voltar">
+        <li><a href="intermediário.html">Voltar</a></li>
+      </ul>
+    </header>
+  <div id= quiz-container2>
+    <h1>Quiz de Inglês - Intermediário</h1>
+    <div id="quiz">
+      <p id="question">Carregando pergunta...</p>
+      <div id="answer-buttons"></div>
+      <button id="next-button" class="btn">Próxima</button>
+    </div>
+    <p id="score"></p>
+    <button id="restart-btn" class="btn">Reiniciar Quiz</button>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Choose the correct sentence:",
+        answers: [
+          "She don't like pizza.",
+          "She doesn't likes pizza.",
+          "She doesn't like pizza.",
+          "She don't likes pizza."
+        ],
+        correct: "She doesn't like pizza."
+      },
+      {
+        question: "Which word is a synonym for 'begin'?",
+        answers: ["Start", "Stop", "End", "Pause"],
+        correct: "Start"
+      },
+      {
+        question: "Choose the correct past form: 'They ___ to the park yesterday.'",
+        answers: ["Go", "Goed", "Went", "Gone"],
+        correct: "Went"
+      },
+      {
+        question: "Complete: 'If I ___ rich, I would travel the world.'",
+        answers: ["Was", "Were", "Am", "Be"],
+        correct: "Were"
+      },
+      {
+        question: "What’s the opposite of 'polite'?",
+        answers: ["Kind", "Rude", "Friendly", "Gentle"],
+        correct: "Rude"
+      },
+      {
+        question: "Identify the correct form: 'He has been ___ English for five years.'",
+        answers: ["Study", "Studied", "Studies", "Studying"],
+        correct: "Studying"
+      },
+      {
+        question: "Choose the correct question form:",
+        answers: [
+          "Do she speaks English?",
+          "Does she speak English?",
+          "She speaks English?",
+          "Does she speaks English?"
+        ],
+        correct: "Does she speak English?"
+      },
+      {
+        question: "Fill in the blank: 'I haven’t seen her ___ last week.'",
+        answers: ["For", "Since", "At", "From"],
+        correct: "Since"
+      },
+      {
+        question: "Choose the correct sentence:",
+        answers: [
+          "There is too many people here.",
+          "There are too many people here.",
+          "There is too much peoples here.",
+          "There are too much people here."
+        ],
+        correct: "There are too many people here."
+      },
+      {
+        question: "Find the correct translation: 'Ela gosta de ler livros.'",
+        answers: [
+          "She like read books.",
+          "She likes reading books.",
+          "She likes read books.",
+          "She like reading books."
+        ],
+        correct: "She likes reading books."
+      }
+    ];
+
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.getElementById("answer-buttons");
+    const nextButton = document.getElementById("next-button");
+    const scoreElement = document.getElementById("score");
+    const restartButton = document.getElementById("restart-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      scoreElement.textContent = "";
+      restartButton.style.display = "none";
+      nextButton.style.display = "none";
+      showQuestion();
+    }
+
+    function showQuestion() {
+      resetState();
+      const currentQuestion = questions[currentQuestionIndex];
+      questionElement.textContent = currentQuestion.question;
+
+      currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.textContent = answer;
+        button.classList.add("btn");
+        button.addEventListener("click", () => selectAnswer(button, currentQuestion.correct));
+        answerButtons.appendChild(button);
+      });
+    }
+
+    function resetState() {
+      nextButton.style.display = "none";
+      while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+      }
+    }
+
+    function selectAnswer(selectedButton, correctAnswer) {
+      const buttons = answerButtons.children;
+      Array.from(buttons).forEach(button => {
+        if (button.textContent === correctAnswer) {
+          button.classList.add("correct");
+        } else {
+          button.classList.add("wrong");
+        }
+        button.disabled = true;
+      });
+
+      if (selectedButton.textContent === correctAnswer) {
+        score += 10;
+      }
+      nextButton.style.display = "block";
+    }
+
+    function showScore() {
+      questionElement.textContent = "Quiz finalizado!";
+      scoreElement.textContent = `Sua pontuação: ${score} / ${questions.length * 10}`;
+      restartButton.style.display = "block";
+    }
+
+    nextButton.addEventListener("click", () => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        showQuestion();
+      } else {
+        resetState();
+        showScore();
+      }
+    });
+
+    restartButton.addEventListener("click", startQuiz);
+
+    startQuiz();
+  </script>
+</body>
+</html>
